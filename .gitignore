@@ -1,5 +1,7 @@
-./Data
+Data/
 .vscode
 .vs
-.bin
-.obj
+bin/
+obj/
+wwwroot/lib
+Migrations/
