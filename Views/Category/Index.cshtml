@@ -27,6 +27,9 @@
             <th>
                 Orderd Date & Time
             </th>
+            <th>
+
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -41,6 +44,11 @@
                 </td>
                 <td width="35%">
                     @obj.CreatedDateTime
+                </td>
+                <td>
+                    <div class="w-75 btn-group" role="group">
+                        <a asp-controller="Category" asp-action="Edit" asp-route-id="@obj.id"><i class="bi bi-pencil-square">Edit</i> </a>
+                    </div>
                 </td>
             </tr>
         }

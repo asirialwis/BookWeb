@@ -42,6 +42,43 @@ namespace BookWeb.Controllers
             return View(obj);
             
         }
+
+
         
+
+        public IActionResult Edit(int? id)
+        {
+            if(id==null || id == 0)
+            {
+                return NotFound();
+            }
+            var cateforyFromDb = _db.Categories.Find(id);
+
+            if (cateforyFromDb == null)
+            {
+                return NotFound();
+            }
+            return View(cateforyFromDb);
+        }
+        //POST
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(Category obj)
+        {
+            if (obj.Name == obj.DisplayOrder.ToString())
+            {
+                ModelState.AddModelError("DisplayOrder", "The Displayorder cannot exactly match the Name.");
+            }
+            if (ModelState.IsValid)
+            {
+                _db.Categories.Update(obj);
+                _db.SaveChanges();
+                TempData["success"] = "Category updated successfully";
+                return RedirectToAction("Index");
+            }
+            return View(obj);
+
+        }
+
     }
 }
