@@ -17,11 +17,14 @@ namespace BookWeb.Controllers
              IEnumerable<Category> objCategeoryList = _db.Categories;
             return View(objCategeoryList);
         }
+
+        //GET
         public IActionResult Create()
         {
             return View();
         }
 
+        //POST
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Create(Category obj)
