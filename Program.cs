@@ -13,7 +13,7 @@ builder.Services.AddDbContext<dbConfig>(options => options.UseSqlServer(
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Configure the HTTP request pipe
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
